@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
-import Home1 from "./pages/home1";
+import Home1 from "./pages/Home1";
 
 // Definice animací mimo komponentu (pro lepší čitelnost)
 const pageVariants = {
