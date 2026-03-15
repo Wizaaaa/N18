@@ -2,6 +2,17 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
 import Home1 from "./pages/Home1";
+import Home2 from "./pages/Home2";
+import Home3 from "./pages/Home3";
+import Home4 from "./pages/Home4";
+import Home5 from "./pages/Home5";
+import Home6 from "./pages/Home6";
+import Home7 from "./pages/Home7";
+import Home8 from "./pages/Home8";
+import Home9 from "./pages/Home9";
+import Home95 from "./pages/Home95";
+import Home10 from "./pages/Home10";
+import Hadanka from "./pages/hadanka";
 
 // Definice animací mimo komponentu (pro lepší čitelnost)
 const pageVariants = {
@@ -37,6 +48,7 @@ function AnimatedRoutes() {
             </PageWrapper>
           }
         />
+
         <Route
           path="/1"
           element={
@@ -45,6 +57,106 @@ function AnimatedRoutes() {
             </PageWrapper>
           }
         />
+        
+        <Route
+          path="/2"
+          element={
+            <PageWrapper direction={direction}>
+              <Home2 />
+            </PageWrapper>
+          }
+        />
+                
+        <Route
+          path="/3"
+          element={
+            <PageWrapper direction={direction}>
+              <Home3 />
+            </PageWrapper>
+          }
+        />
+                        
+        <Route
+          path="/4"
+          element={
+            <PageWrapper direction={direction}>
+              <Home4 />
+            </PageWrapper>
+          }
+        />
+                                
+        <Route
+          path="/5"
+          element={
+            <PageWrapper direction={direction}>
+              <Home5 />
+            </PageWrapper>
+          }
+        />
+                                        
+        <Route
+          path="/6"
+          element={
+            <PageWrapper direction={direction}>
+              <Home6 />
+            </PageWrapper>
+          }
+        />
+                                                
+        <Route
+          path="/7"
+          element={
+            <PageWrapper direction={direction}>
+              <Home7 />
+            </PageWrapper>
+          }
+        />
+                                                        
+        <Route
+          path="/8"
+          element={
+            <PageWrapper direction={direction}>
+              <Home8 />
+            </PageWrapper>
+          }
+        />
+                                                                
+        <Route
+          path="/9"
+          element={
+            <PageWrapper direction={direction}>
+              <Home9 />
+            </PageWrapper>
+          }
+        />
+                                                                        
+        <Route
+          path="/9-5"
+          element={
+            <PageWrapper direction={direction}>
+              <Home95 />
+            </PageWrapper>
+          }
+        />
+                                                                                
+        <Route
+          path="/10"
+          element={
+            <PageWrapper direction={direction}>
+              <Home10 />
+            </PageWrapper>
+          }
+        />
+                                                                                        
+        <Route
+          path="/hadanka"
+          element={
+            <PageWrapper direction={direction}>
+              <Hadanka />
+            </PageWrapper>
+          }
+        />
+        
       </Routes>
     </AnimatePresence>
   );
