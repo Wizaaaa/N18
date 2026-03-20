@@ -1,6 +1,7 @@
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import emailjs from '@emailjs/browser'
 
 import photo49 from "../../assets/images/49.jpg";
 import photo50 from "../../assets/images/50.jpg";
@@ -9,12 +10,34 @@ export default function Hadanka() {
   const navigate = useNavigate();
   const correctAnswer = "080819121907"
   const [answer, setAnswer] = useState("");
+  const hasSentEmail = useRef(false);
 
   useEffect(() => {
-    if (answer === correctAnswer) {
-        navigate("/")
+    if (answer === correctAnswer && !hasSentEmail.current) {
+      hasSentEmail.current = true; // Označíme, že odesíláme
+
+      const templateParams = {
+        message: 'V takovémto případě si zasloužíš svojí odměnu',
+        user_answer: answer
+      };
+
+      emailjs.send(
+        'service_qgvysds', 
+        'template_xq3xhdk', 
+        templateParams, 
+        'mG2C7F6iwG1lJc3jo'
+      )
+      .then((response) => {
+        console.log('E-mail odeslán!', response.status, response.text);
+        // Po úspěšném odeslání můžeš uživatele přesměrovat
+        setTimeout(() => navigate("/", { state: { direction: 1 } }), 1000);
+      })
+      .catch((err) => {
+        console.error('Chyba při odesílání:', err);
+        hasSentEmail.current = false; // Při chybě dovolíme zkusit znovu
+      });
     }
-  }, [answer, navigate])
+  }, [answer, navigate]);
 
   return (
     <div className="relative h-screen w-full flex items-center justify-center p-8 overflow-hidden">
